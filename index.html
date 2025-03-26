@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="calculadora">
+    <div id="fila1">
+        <h1 id="resultado"></h1>
+        <button id="Borrar" onclick="Borrar()">C</button>
+        <button id="Negativo" onclick="MasOMenos()" value="+/-">+/-</button>
+        <button id="Porcentaje" onclick="operar(5)" value="%">%</button>
+        <button id="Dividido" onclick="operar(4)" value="/">/</button>
+    </div>
+<br>
+    <div id="fila2">
+        <button id="Siete" value="7" onclick="mostrarNumero(event)">7</button>
+        <button id="Ocho" value="8" onclick="mostrarNumero(event)">8</button>
+        <button id="Nueve" value="9" onclick="mostrarNumero(event)">9</button>
+        <button id="Multiplicar" onclick="operar(3)" value="X">X</button>
+    </div>
+<br>
+    <div id="fila3">
+        <button id="Cuatro" value="4" onclick="mostrarNumero(event)">4</button>
+        <button id="Cinco" value="5" onclick="mostrarNumero(event)">5</button>
+        <button id="Seis" value="6" onclick="mostrarNumero(event)">6</button>
+        <button id="Menos" onclick="operar(2)" value="-">-</button>
+    </div>
+<br>
+    <div id="fila4">
+        <button id="Uno" value="1" onclick="mostrarNumero(event)">1</button>
+        <button id="Dos" value="2" onclick="mostrarNumero(event)">2</button>
+        <button id="Tres" value="3" onclick="mostrarNumero(event)">3</button>
+        <button id="Mas" onclick="operar(1)" value="+">+</button>
+    </div>
+<br>        
+    <div id="fila5">
+        <button id="Parentesis" onclick="operar()" value="()">()</button>
+        <button id="Cero" value="0" onclick="mostrarNumero(event)">0</button>
+        <button id="Coma" value=",">,</button>
+        <button id="Igual" onclick="operaciones()"> = </button>
+    </div>
+</div>
+    <script src="./script.js"></script>
+</body>
+</html>
