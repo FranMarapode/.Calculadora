@@ -3,6 +3,7 @@ let num1 = 0;
 let num2 = "";
 let opera;
 let operacionEnCurso = false;
+let resultado = document.getElementById("resultado");
 
 let suma = 1;
 let resta = 2;
@@ -15,11 +16,18 @@ function mostrarNumero(e) {
     if (operacionEnCurso) {
         operacionEnCurso = false;
     }
+
+    if(resultado.value == "Error") {
+        Borrar()
+        resultado.value = ""
+    }
+
     document.getElementById("resultado").innerText += e.target.value;
     num2 += e.target.value;
 }
 
 function operar(valor) {
+
     if (!operacionEnCurso && num2 !== "") {
         num1 = parseFloat(num2)
         num2 = "";
@@ -57,7 +65,14 @@ function operaciones() {
             num1 *= num2;
             break;
         case 4:
-            num1 /= num2;
+            if ((num2 == 0) || (num1 == 0 && num2 == 0)) {
+                
+                resultado.value = "Error"
+            }else if (num2 !== 0) 
+            {
+                num1 /= num2;
+            }
+            
             break;
         case 5:
             num1 = (num1 / 100) * num2;
@@ -65,8 +80,14 @@ function operaciones() {
         default:
             break;
     }
-    let resultado = document.getElementById("resultado");
-    resultado.innerText = num1;
+    if (resultado.value !== "Error") {
+        resultado.innerText = num1;
+    }
+    else {
+        resultado.style.color = "red";
+        resultado.innerText = "Error"
+    }
+  
     if (num1 >= 0) {
         resultado.style.color = "green";
     }
