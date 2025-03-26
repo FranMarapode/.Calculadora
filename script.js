@@ -120,3 +120,26 @@ const Borrar = () => {
     operacionEnCurso = false;
     resultado.style.color = "white";
 }
+
+const BorrarUno = () => {
+    let resultado = document.getElementById("resultado");
+    let textoActual = resultado.innerText;
+    if (textoActual.length > 0) {
+        resultado.innerText = textoActual.slice(0, -1);
+        num2 = num2.slice(0, -1);
+    }
+}
+
+function AgregarComa() {
+    if (operacionEnCurso) {
+        operacionEnCurso = false;
+    }
+    if (num2 === "") {
+        num2 = "0.";
+        document.getElementById("resultado").innerText += "0.";
+    }
+    else if (!num2.includes(".")) {
+        num2 += ".";
+        document.getElementById("resultado").innerText += ".";
+    }
+}
