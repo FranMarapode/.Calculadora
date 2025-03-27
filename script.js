@@ -1,4 +1,4 @@
-
+let contador = 0;
 let num1 = 0;
 let num2 = "";
 let opera;
@@ -41,6 +41,7 @@ function operar(valor) {
             case 4: signo = "÷"; break;
             case 5: signo = "%"; break;
         }
+        contador++;
        
     document.getElementById("resultado").innerText += `${signo}`; 
     }
@@ -53,7 +54,8 @@ function operar(valor) {
 
 function operaciones() {
     if (num2 === "") return;
-    num2 = parseFloat(num2);
+    if (contador <= 1) {
+        num2 = parseFloat(num2);
     switch (opera) {
         case 1:
             num1 += num2;
@@ -80,13 +82,7 @@ function operaciones() {
         default:
             break;
     }
-    if (resultado.value !== "Error") {
-        resultado.innerText = num1;
-    }
-    else {
-        resultado.style.color = "red";
-        resultado.innerText = "Error"
-    }
+    
   
     if (num1 >= 0) {
         resultado.style.color = "green";
@@ -96,6 +92,21 @@ function operaciones() {
     }
     num2 = num1.toString();
     operacionEnCurso = false;
+    contador = 0;
+    }
+    else{
+        resultado.value = "Error"
+        contador = 0;
+        
+    }
+    if (resultado.value !== "Error") {
+        resultado.innerText = num1;
+    }
+    else {
+        resultado.style.color = "red";
+        resultado.innerText = "Error"
+    }
+    
 }
 
 function MasOMenos() {
